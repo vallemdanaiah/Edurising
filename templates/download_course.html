@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <title>Edurising</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+
+        <!-- Favicons -->
+        <link href="{% static 'img/favicon.png' %}" rel="icon">
+        <link href="{% static 'img/hero-img.png' %}" rel="apple-touch-icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <!-- Template Main CSS File -->
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <header id="header" class="fixed-top ">
+            <div class="container">
+              <nav class="navbar navbar-expand-lg" id="navbar">
+                  <a class="navbar-brand" href="#hero">
+                      <img src="{% static 'img/EduLogo.png' %}" alt="Logo" width="170" height="40" class="d-inline-block align-text-top">
+                  </a>
+                  <a style="color:#47b2e4 ;" class="getstarted scrollto" href="{% url 'index' %}">Home</a>
+                </nav>
+            </div>
+          </header>
+        <div class="form_container">
+            <div class="screen" style="height: 550px;">
+                <div class="screen__content">
+                    <form class="login" action="{% url 'Save_download_course' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="login__field">
+                            <i class="login__icon fas fa-user"></i>
+                            <input type="text" class="login__input" name="std_name" placeholder="Full Name" required>
+                        </div>
+            
+                        <div class="login__field">
+                            <i class="login__icon fas fa-lock"></i>
+                            <input type="email" class="login__input" name="std_email" placeholder="Email" required>
+                        </div>
+
+                        <div class="login__field">
+                            <i class="login__icon fas fa-lock"></i>
+                            <input type="text" class="login__input" name="std_number" pattern="[6-9][0-9]{9}" placeholder="Mobile Number" required>
+                        </div>
+
+                        <div class="login__field">
+                            <i class="login__icon fas fa-lock"></i>
+                            <input type="text" class="login__input" name="std_qualification" placeholder="Qualification" required>
+                            <input type="hidden" class="login__input" name="std_download_course" placeholder="Full Name" value={{course_detail}} required>
+                        </div>
+
+                        {% if course_detail %}
+                        <button type="submit" class="button login__submit">
+                            <span class="button__text">Register</span>
+                            <i class="button__icon fas fa-chevron-right"></i>
+                        </button>	
+                        {% endif %}
+                    </form>
+                    {% if std_download_course %}
+                    <button class="button login__submit" style="width: 50%; margin: -10px 0 0 20px;">
+                    <a href="{{std_download_course.file.url|default_if_none:'#'}}" style="padding-left: 5px;" download>Download⬇️</a>
+                    <i class="button__icon fas fa-chevron-right"></i>
+                    </button>
+                    {% endif %}
+                </div>
+                <div class="screen__background">
+                    <span class="screen__background__shape screen__background__shape4"></span>
+                    <span class="screen__background__shape screen__background__shape3"></span>		
+                    <span class="screen__background__shape screen__background__shape2"></span>
+                    <span class="screen__background__shape screen__background__shape1"></span>
+                </div>		
+            </div>
+        </div>
+        <!-- Template Main JS File -->
+        <script src='/static/js/main.js'></script>
+    </body>
+</html>

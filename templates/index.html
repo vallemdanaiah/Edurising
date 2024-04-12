@@ -1,0 +1,318 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Edurising</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/hero-img1.png' %}" rel="icon">
+  <link href="{% static 'img/hero-img.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+  
+  
+  .cert-number{
+    border-radius: 5px;
+    height: 35px;
+  }
+</style>
+
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg" id="navbar">
+            <a class="navbar-brand" href="#hero">
+                <img src="{% static 'img/EduLogo.png' %}" alt="Logo" width="200" height="50" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon">
+                <i class="fa fa-bars" style="color:#fff; font-size:28px;"></i>
+              </span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <a class="nav-link scrollto" href="#about">About</a>
+                <a class="nav-link scrollto" href="#courses">courses</a>
+                <a class="nav-link scrollto" href="#footer">Contact</a>
+                <a class="getstarted scrollto" href="#register">Register</a>
+            
+            </div>
+          </nav>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    {% if CertificateDetail %}
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>This is to certify that 
+                            <b> 
+                                {% if CertificateDetail.gender == 'M' %} Mr. {% else %} Ms. {% endif %}
+                                {{CertificateDetail.name}}
+                            </b>completed course Successfully, in Edurising with the Certification Number 
+                            <b>
+                                {{CertificateDetail.cert_number}}  
+                            </b> on
+                            <b>
+                                 {{CertificateDetail.date}} 
+                            </b>
+                         </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %} 
+
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+          <h1>Achieving Excellency Together</h1>
+          <h2>We are team of talented Developers To Train, Develop & Build Your Career. </h2>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <a href="#register" class="btn-get-started scrollto">Register</a>
+            <!-- <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+          <img src="{% static 'img/hero-img.png' %}" style="width: 95%; height: 110%;" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Hero -->
+
+    <main id="main">
+        <!-- ======= About Us Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>About Us</h2>
+            </div>
+            <div class="row content">
+                <center>
+                <div class="col-lg-12 pt-4 pt-lg-0">
+                <p><div class="container" data-aos="fade-up">
+                </div>
+                    Edurising is a leading e-learning platform providing live instructor-led interactive online training. We
+                    cater to professionals and students across the globe in categories like Big Data & Hadoop, Business
+                    Analytics, NoSQL Databases, Java & Mobile Technologies, System Engineering, Project Management
+                    and Programming. Edurising has an easy and affordable learning solution that is accessible to the learners accross the globe.
+                </p>
+                <a href="#" class="btn-learn-more">Learn More</a>
+                </div>
+                </center>
+            </div>
+    
+            </div>
+        </section>
+        <!-- End About Us Section -->
+
+        <!-- ======= courses Section ======= -->
+        <section id="courses" class="courses section-bg">
+            <div class="container" data-aos="fade-up">
+    
+            <div class="section-title">
+                <h2>Courses </h2>
+                <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+            </div>
+    
+            <div class="row">
+                {% if courses %}
+                {% for course in courses %}
+                <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" style="padding-bottom: 20px;">
+                    <div class="icon-box">
+                        <h4>{{course.course_title}}</h4>
+                        <p style="text-align: justify; padding-bottom: 10px;">{{course.course_desc}}</p>
+        
+                        <button class="button login__submit">
+                        <a href="{% url 'Download_course' %}?course_title={{course.course_title}}">Download⬇️</a>
+                        </button>	
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+            </div>
+        </section>
+        <!-- End courses Section -->
+
+        <!-- ======= Cta Section ======= -->
+        <section id="cta" class="cta">
+            <div class="container" data-aos="zoom-in">
+                <div class="row">
+                    <div class="col-lg-12 text-center text-lg-start">
+                    <h3>We Serve</h3>
+                    <p> Our education system is designed to deliver training programs based on the demand objectives of students. Our structured and proven approach to each training programs, helps every working-professional to achieve their goal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Cta Section -->
+
+        <!-- ======= register Section ======= -->
+        <section id="register" class="register">
+            <div class="container" data-aos="fade-up">
+    
+            <div class="section-title">
+                <h2>register</h2>
+            
+                <div class="form_container">
+                    <div class="screen">
+                    <div class="screen__content">
+                        <form class="login" action="" method="POST">
+                        {% csrf_token %}
+                        <div class="login__field">
+                            <input type="text" class="login__input" name="std_name" placeholder="Full Name" required>
+                        </div>
+                        <div class="login__field">
+                            <input type="email" class="login__input" name="std_email" placeholder="Email" required>
+                        </div>
+                        <div class="login__field">
+                            <input type="text" class="login__input" name="std_number" pattern="[6-9][0-9]{9}" placeholder="Mobile Number" required>
+                        </div>
+                        <div class="login__field">
+                            <input type="text" class="login__input" name="std_qualification" placeholder="Qualification" required>
+                        </div>
+                        <div class="login__field">
+                            <input type="text" class="login__input" name="std_course" placeholder="Course Interested" required>
+                        </div>
+                        <button type="submit" class="button login__submit">
+                            <span class="button__text">Register</span>
+                        </button>				
+                        </form>
+                    </div>
+                    <div class="screen__background">
+                        <span class="screen__background__shape screen__background__shape4"></span>
+                        <span class="screen__background__shape screen__background__shape3"></span>		
+                        <span class="screen__background__shape screen__background__shape2"></span>
+                        <span class="screen__background__shape screen__background__shape1"></span>
+                    </div>		
+                    </div>
+                </div>
+        </div>
+        </section>
+        <!-- End register Section -->
+    </main>
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="footer-newsletter">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="container" data-aos="fade-up">
+                            <div class="section-title">
+                                <h2>Contact</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h3>EDURISING</h3>
+                        <p>
+                        <strong>Phone:</strong> 6281287253<br>
+                        <strong>Email:</strong> support@edurising.com<br>
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Our Social Networks</h4>
+                        <p>To Know more about Us Follow Us on Social Media.  </p>
+                        <div class="social-links mt-3">
+                            <a href="https://twitter.com/edu_rising" class="fa fa-twitter"></i></a>
+                            <a href="https://www.facebook.com/edurisingindia" class="fa fa-facebook"></i></a>
+                            <a href="https://instagram.com/_edurising?r=nametag" class="fa fa-instagram"></a>
+                            <!-- <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> -->
+                            <a href="#" class="fa fa-linkedin"></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 footer-links">
+                        <h4>Verify Your Certificate</h4>
+                        <p>Enter Yor Certicicate Number</p>
+                        <div class="social-links mt-3">
+                            <form action="{% url 'verify_certificate' %}" method="POST">
+                                {% csrf_token %}
+                                <input class="cert-number" type="text" required name="cert_number">
+                                <button type="submit" class="btn btn-primary" style="height: 35px;">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-bottom clearfix">
+            <div class="copyright">
+                &copy; Copyright <strong><span>NavayaIt</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                Designed by <a href="https://edurising.com/">NavyaItSolutions</a>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Template Main JS File -->
+    <script src='/static/js/main.js'></script>
+    <script>
+        // var course_title = document.getElementById('course_title')
+        // console.log(course_title)
+        function onClickDownload(){
+        var course_title = document.getElementById('course_title')
+        console.log(course_title)
+        document.getElementById('selected_course_title').value = course_title;
+        }
+
+        $(document).ready(function () {
+            $("#myModal").modal("show");
+        });    
+
+        $(document).ready(function () {
+            $("#myModal2").modal("show");
+        });    
+    </script>
+</body>
+</html>
